@@ -35,6 +35,19 @@ io.on('connection', socket => {
         senderChatID = message.senderChatID
         content = message.content
 
+       msg= JSON.parse(message);
+
+        
+        console.log(msg);
+        console.log(msg.receiverChatID);
+        console.log(msg.senderChatID);
+        console.log(msg.content);
+        
+        console.log(message);
+        console.log(message.receiverChatID);
+        console.log(message.senderChatID);
+        console.log(message.content);
+
         console.log('user ' + senderChatID + ' sent to ' + receiverChatID + "\n" + content);
         //Send message to only that particular room
         socket.in(receiverChatID).emit('receive_message', {
