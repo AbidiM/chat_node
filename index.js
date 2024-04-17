@@ -41,9 +41,9 @@ io.on('connection', socket => {
         console.log(msg.senderChatID);
         console.log(msg.content);
 
-        receiverChatID = message.receiverChatID
-        senderChatID = message.senderChatID
-        content = message.content
+        receiverChatID = msg.receiverChatID
+        senderChatID = msg.senderChatID
+        content = msg.content
 
         console.log('user ' + senderChatID + ' sent to ' + receiverChatID + "\n" + content);
         //Send message to only that particular room
