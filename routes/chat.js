@@ -3,13 +3,12 @@ const express = require('express');
 const app = express();
 const chatRoute = express.Router();
 const http = require('http').Server(app);
-// const io = require('socket.io').listen(http);
-const io = require('socket.io')(http);
+const io = require('socket.io').listen(http);
+// const io = require('socket.io')(http);
 
 const connection = require('../db');
 
 
-chatRoute.post('/chat', function (req, res, next) {
 
     
 //rooms
@@ -51,7 +50,6 @@ io.on('connection', socket => {
             'receiverChatID': receiverChatID,
         })
     })
-});
 });
 
 
