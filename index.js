@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const http = require('http').Server(app);
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
@@ -7,17 +8,24 @@ const writeRead = require('./routes/writeRead');
 const updateDelete = require('./routes/updateDelete');
 const chat = require('./routes/chat');
 
-app.use('/cr', writeRead);
-app.use('/ud', updateDelete);
-app.use('/msg', chat);
-app.use('/', function (req, res, next) {
+http.use('/cr', writeRead);
+http.use('/ud', updateDelete);
+http.use('/msg', chat);
+http.use('/', function (req, res, next) {
     res.sendStatus(404);
 });
 
+// app.use('/cr', writeRead);
+// app.use('/ud', updateDelete);
+// app.use('/msg', chat);
+// app.use('/', function (req, res, next) {
+//     res.sendStatus(404);
+// });
 
-app.listen(PORT, () =>
-    console.log('Server running on port: ' + PORT
-    ));
+
+// app.listen(PORT, () =>
+//     console.log('Server running on port: ' + PORT
+//     ));
 
 
 
@@ -68,4 +76,4 @@ app.listen(PORT, () =>
 //     })
 // });
 
-// http.listen(process.env.PORT)
+http.listen(process.env.PORT)
