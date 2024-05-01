@@ -22,7 +22,7 @@ app.use('/', function (req, res, next) {
     res.sendStatus(404);
 });
 
-app.get('/chat', (req, res) => {
+app.use('/chat', (req, res) => {
     // Check authorization logic here (e.g., using req.headers.token)
     // if (/* authorized */) {
     console.log('msg route working');
