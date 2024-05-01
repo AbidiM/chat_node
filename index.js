@@ -10,7 +10,7 @@ const chat = require('./routes/chat');
 
 app.use('/cr', writeRead);
 app.use('/ud', updateDelete);
-app.use('/msg', chat);
+app.get('/msg', chat);
 app.use('/', function (req, res, next) {
     res.sendStatus(404);
 });
