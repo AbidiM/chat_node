@@ -57,6 +57,7 @@ crRoute.post('/check', function (req, res, next) {
 });
 
 crRoute.use('/', function (req, res, next) {
+    console.log("cr working");
     res.sendStatus(404);
 })
 module.exports = crRoute;
