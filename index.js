@@ -9,7 +9,7 @@ const updateDelete = require('./routes/updateDelete');
 
 app.use('/cr', writeRead);
 app.use('/ud', updateDelete);
-app.use('/msg', chat);
+// app.use('/msg', chat);
 app.use('/', function (req, res, next) {
     
     console.log('api working');
