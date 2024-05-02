@@ -7,9 +7,10 @@ const io = require('socket.io')(http);
 
 chatRoute.use('/', function (req, res, next) {
     console.log('msg route working');
+    res.sendStatus(404);
 })
 
-chatRoute.use('/chat', function (req, res, next) {
+chatRoute.get('/chat', function (req, res, next) {
 
     console.log('chat route working');
 
