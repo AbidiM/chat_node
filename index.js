@@ -1,18 +1,11 @@
 const express = require('express');
 const app = express();
-const http = require('http');
-const socketio = require('socket.io');
 app.use(express.json());
-
-const server = http.createServer(app);
-
-let io;
 
 const PORT = process.env.PORT || 3000;
 const chat = require('./routes/chat');
 const writeRead = require('./routes/writeRead');
 const updateDelete = require('./routes/updateDelete');
-// const chat = require('./routes/chat');
 
 app.use('/cr', writeRead);
 app.use('/ud', updateDelete);
@@ -24,14 +17,9 @@ app.use('/', function (req, res, next) {
 });
 
 
-// app.listen(PORT, () =>
-//     console.log('Server running on port: ' + PORT
-//     ));
-
-server.listen(PORT, () =>
+app.listen(PORT, () =>
     console.log('Server running on port: ' + PORT
     ));
-
 
 
 
