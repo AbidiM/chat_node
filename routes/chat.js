@@ -10,12 +10,13 @@ chatRoute.use('/', function (req, res, next) {
     res.sendStatus(404);
 })
 
-chatRoute.get('/chat', function (req, res, next) {
+chatRoute.post('/chat', function (req, res, next) {
+    res.send('This route is for regular HTTP request handling');
 
-    console.log('chat route working');
+    console.log('chat route working');});
 
     //rooms
-    io.on('connection', socket => {
+    io.on('connection', (socket) => {
         //Get the chatID of the user and join in a room of the same chatID
         chatID = socket.handshake.query.chatID
 
@@ -30,7 +31,7 @@ chatRoute.get('/chat', function (req, res, next) {
         })
 
         //Send message to only a particular user
-        socket.on('send_message', message => {
+        socket.on('chat', (message) => {
 
 
             msg = JSON.parse(message);
@@ -54,9 +55,6 @@ chatRoute.get('/chat', function (req, res, next) {
             })
         })
     });
-
-    http.listen(process.env.PORT)
-});
 
 
 module.exports = chatRoute;

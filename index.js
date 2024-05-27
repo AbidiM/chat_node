@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
 const chat = require('./routes/chat');
 const writeRead = require('./routes/writeRead');
 const updateDelete = require('./routes/updateDelete');
@@ -17,9 +16,15 @@ app.use('/', function (req, res, next) {
 });
 
 
-app.listen(PORT, () =>
-    console.log('Server running on port: ' + PORT
-    ));
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+// app.listen(PORT, () =>
+//     console.log('Server running on port: ' + PORT
+//     ));
 
 
 
