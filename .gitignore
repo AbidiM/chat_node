@@ -1,1 +1,4 @@
 /node_modules
+/routes
+/db.config.js
+/db.js
